@@ -14,6 +14,13 @@ public class DetailTransaksiImplement implements DetailTransaksiDAO {
         this.connection = connection;
     }
 
+    /**
+     * Creates a new detail transaksi record in the database.
+     *
+     * @param detailTransaksi the DetailTransaksi object containing the details to be inserted
+     * @return the generated ID of the newly created detail transaksi
+     * @throws Exception if there is an error during the database operation
+     */
     @Override
     public int createDetailTransaksi(DetailTransaksi detailTransaksi) throws Exception {
         String sql = QueryHelper.CREATE_DETAIL_TRANSAKSI;
@@ -40,6 +47,13 @@ public class DetailTransaksiImplement implements DetailTransaksiDAO {
         }
     }
 
+    /**
+     * Reads the detail of a transaction by its ID.
+     *
+     * @param idDetail the ID of the transaction detail to be read.
+     * @return a DetailTransaksi object containing the transaction details if found, otherwise null.
+     * @throws Exception if a database access error occurs or the SQL statement fails.
+     */
     @Override
     public DetailTransaksi readDetailTransaksiId(int idDetail) throws Exception {
         String sql = QueryHelper.GET_DETAIL_TRANSAKSI_BY_ID;
@@ -63,6 +77,12 @@ public class DetailTransaksiImplement implements DetailTransaksiDAO {
         }
     }
 
+    /**
+     * Reads all detail transaksi records from the database.
+     *
+     * @return a list of DetailTransaksi objects representing all detail transaksi records.
+     * @throws Exception if a database access error occurs.
+     */
     @Override
     public List<DetailTransaksi> readAllDetailTransaksi() throws Exception {
         String sql = QueryHelper.GET_ALL_DETAIL_TRANSAKSI;
@@ -85,6 +105,12 @@ public class DetailTransaksiImplement implements DetailTransaksiDAO {
         }
     }
 
+    /**
+     * Updates the details of a transaction in the database.
+     *
+     * @param detailTransaksi the DetailTransaksi object containing the updated transaction details
+     * @throws Exception if there is an error during the update process
+     */
     @Override
     public void updateDetailTransaksi(DetailTransaksi detailTransaksi) throws Exception {
         String sql = QueryHelper.UPDATE_DETAIL_TRANSAKSI;
@@ -103,6 +129,12 @@ public class DetailTransaksiImplement implements DetailTransaksiDAO {
         }
     }
 
+    /**
+     * Deletes a detail transaksi record from the database based on the provided ID.
+     *
+     * @param idDetail the ID of the detail transaksi to be deleted
+     * @throws Exception if a database access error occurs or the SQL statement fails
+     */
     @Override
     public void deleteDetailTransaksi(int idDetail) throws Exception {
         String sql = QueryHelper.DELETE_DETAIL_TRANSAKSI;

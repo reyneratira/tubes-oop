@@ -13,6 +13,13 @@ public class TransaksiImplement implements TransaksiDAO {
         this.connection = connection;
     }
 
+    /**
+     * Creates a new transaksi record in the database.
+     *
+     * @param transaksi The Transaksi object containing the details of the transaction to be created.
+     * @return The generated ID of the newly created transaksi.
+     * @throws Exception If an error occurs while creating the transaksi.
+     */
     @Override
     public int createTransaksi(Transaksi transaksi) throws Exception {
         String sql = QueryHelper.CREATE_TRANSAKSI;
@@ -35,6 +42,12 @@ public class TransaksiImplement implements TransaksiDAO {
         }
     }
 
+    /**
+     * Deletes a transaksi record from the database based on the provided transaksi ID.
+     *
+     * @param idTransaksi the ID of the transaksi to be deleted
+     * @throws Exception if there is an error during the deletion process
+     */
     @Override
     public void deleteTransaksi(int idTransaksi) throws Exception {
         String sql = QueryHelper.DELETE_TRANSAKSI;
@@ -49,6 +62,12 @@ public class TransaksiImplement implements TransaksiDAO {
         }
     }
 
+    /**
+     * Updates an existing transaksi in the database.
+     *
+     * @param transaksi the Transaksi object containing updated data
+     * @throws Exception if an error occurs during the update process
+     */
     @Override
     public void updateTransaksi(Transaksi transaksi) throws Exception {
         String sql = QueryHelper.UPDATE_TRANSAKSI;
@@ -65,6 +84,20 @@ public class TransaksiImplement implements TransaksiDAO {
         }
     }
 
+    /**
+     * Calculates the total for a given Transaksi and updates the total in the database.
+     *
+     * @param transaksi The Transaksi object for which the total is to be calculated.
+     * @throws Exception If there is an error during the calculation or update process.
+     *
+     * This method performs the following steps:
+     * 1. Prepares a SQL statement to retrieve the total amount for the given Transaksi ID.
+     * 2. Executes the query and retrieves the total amount from the result set.
+     * 3. Throws an SQLException if the Transaksi ID does not exist or if there is an error during the query execution.
+     * 4. Prepares a SQL statement to update the total amount for the given Transaksi ID.
+     * 5. Executes the update statement and checks if any rows were updated.
+     * 6. Throws an SQLException if the update fails or if the Transaksi ID does not exist.
+     */
     @Override
     public void calculateTotal(Transaksi transaksi) throws Exception {
         String sql = QueryHelper.GET_TRANSAKSI_TOTAL;
